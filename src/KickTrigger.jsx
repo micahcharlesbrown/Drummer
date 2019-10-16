@@ -23,7 +23,7 @@ class UnconnectedKickTrigger extends Component {
 
   start = sequence => {
     this.setState(this.state);
-    Tone.Transport.scheduleRepeat(this.oneStep, "8n");
+    Tone.Transport.scheduleRepeat(this.oneStep, "16n");
     Tone.Transport.start();
   };
 
@@ -32,7 +32,7 @@ class UnconnectedKickTrigger extends Component {
     Tone.Transport.stop();
   };
   oneStep = time => {
-    let step = this.index % 16;
+    let step = this.index % 32;
 
     if (this.props.kick[step] !== null) {
       this.playKick(this.props.kick[step], time);

@@ -8,6 +8,7 @@ import KickTrigger from "./KickTrigger.jsx";
 import SnareTrigger from "./SnareTrigger.jsx";
 import SnarePattern from "./SnarePattern.jsx";
 import KickPattern from "./KickPattern";
+import AudioTrigger from "./AudioTrigger.jsx";
 import SetBPM from "./SetBPM";
 
 class UnconnectedApp extends Component {
@@ -24,9 +25,9 @@ class UnconnectedApp extends Component {
         DRUMMER
         <button onClick={this.start}>START</button>
         <button onClick={this.stop}>STOP</button>
-        <SnareTrigger />
+        <AudioTrigger />
         <SnarePattern />
-        <KickTrigger />
+        <br />
         <KickPattern />
         <SetBPM />
       </div>

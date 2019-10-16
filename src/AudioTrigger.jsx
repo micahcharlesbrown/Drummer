@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import Tone from "tone";
 
-class UnconnectedSnareTrigger extends Component {
+class UnconnectedAudioTrigger extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -18,6 +18,14 @@ class UnconnectedSnareTrigger extends Component {
     snare.envelope.decay = 0.3;
     snare.connect(this.wider);
     snare.triggerAttackRelease("32n");
+    return;
+  };
+
+  playKick = (note, time) => {
+    let kick = new Tone.MembraneSynth().toMaster();
+    kick.envelope.decay = 0.1;
+    kick.envelope.attack = 0.05;
+    kick.triggerAttackRelease(note, "32n", time);
     return;
   };
 
@@ -37,6 +45,9 @@ class UnconnectedSnareTrigger extends Component {
     if (this.props.snare[step] !== null) {
       this.playSnare(this.props.snare[step], time);
     }
+    if (this.props.kick[step] !== null) {
+      this.playKick(this.props.kick[step], time);
+    }
     this.index++;
   };
 
@@ -45,7 +56,7 @@ class UnconnectedSnareTrigger extends Component {
   render() {
     return (
       <div>
-        <button onClick={this.start}>START snare</button>
+        <button onClick={this.start}>START Pattern</button>
         <button onClick={this.stop}>STOP</button>
       </div>
     );
@@ -53,9 +64,10 @@ class UnconnectedSnareTrigger extends Component {
 }
 
 let mapStateToProps = state => ({
-  snare: state.snareSequence
+  snare: state.snareSequence,
+  kick: state.kickSequence
 });
 
-let SnareTrigger = connect(mapStateToProps)(UnconnectedSnareTrigger);
+let AudioTrigger = connect(mapStateToProps)(UnconnectedAudioTrigger);
 
-export default SnareTrigger;
+export default AudioTrigger;

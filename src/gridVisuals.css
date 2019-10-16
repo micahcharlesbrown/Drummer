@@ -1,6 +1,6 @@
 .playGrid {
   display: grid;
-  grid-template-columns: repeat(16, 1fr);
+  grid-template-columns: repeat(32, 1fr);
   grid-column-gap: 10px;
   justify-content: center;
   align-items: center;
@@ -10,14 +10,18 @@
 
 .button {
   height: 50px;
-  background-color: #d9f4c7;
+  background-color: #4effef;
 }
 
 .four {
   height: 50px;
-  background-color: #9dcdc0;
+  background-color: #73a6ad;
 }
 
 .activeButton {
-  background-color: #f8fa90;
+  background-color: #9b97b2;
+}
+
+.playing {
+  opacity: 50%;
 }

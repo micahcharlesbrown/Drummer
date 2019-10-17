@@ -1,5 +1,12 @@
 .App {
   text-align: center;
+  font-family: "Press Start 2P", cursive;
+}
+
+.container {
+  height: 700px;
+  background-color: #232426;
+  background-image: url("https://www.transparenttextures.com/patterns/clean-gray-paper.png");
 }
 
 .App-logo {
@@ -19,4 +26,20 @@
 
 .App-link {
   color: #09d3ac;
+}
+
+.transportButton {
+  background-color: #ffc631;
+  margin: 10px;
+  border: none;
+  font-size: 20px;
+  box-shadow: 0 5px #999;
+  border-radius: 0px 3px 3px 3px;
+  outline: none;
+}
+
+.transportButton:active {
+  box-shadow: 0 2px #999;
+  outline: none;
+  transform: translateY(3px);
 }

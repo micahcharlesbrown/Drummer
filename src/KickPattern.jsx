@@ -31,8 +31,14 @@ class UnconnectedKickPattern extends Component {
   };
 
   isActive = index => {
+    if (this.props.step === index && this.props.kick[index] === null) {
+      return "playing";
+    }
     if (this.props.kick[index] === null) {
       return "";
+    }
+    if (this.props.step === index && this.props.kick[index] !== null) {
+      return "activeButton playing";
     }
     return "activeButton";
   };
@@ -69,7 +75,8 @@ class UnconnectedKickPattern extends Component {
 }
 
 let mapStateToProps = state => ({
-  kick: state.kickSequence
+  kick: state.kickSequence,
+  step: state.step
 });
 
 let KickPattern = connect(mapStateToProps)(UnconnectedKickPattern);

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import Tone from "tone";
 import "./gridVisuals.css";
+import equal from "fast-deep-equal";
 
 class UnconnectedSnarePattern extends Component {
   constructor(props) {
@@ -10,6 +11,13 @@ class UnconnectedSnarePattern extends Component {
       value: this.props.snare
     };
   }
+
+  componentDidUpdate = prevProps => {
+    if (!equal(this.props.step, prevProps.step)) {
+      // Check if it's a new user, you can also use some unique property, like the ID  (this.props.user.id !== prevProps.user.id)
+      this.RenderSequence();
+    }
+  };
 
   updateSnarePattern = index => {
     let oldPattern = this.props.snare;
@@ -31,8 +39,14 @@ class UnconnectedSnarePattern extends Component {
   };
 
   isActive = index => {
+    if (this.props.step === index && this.props.snare[index] === null) {
+      return "playing";
+    }
     if (this.props.snare[index] === null) {
       return "";
+    }
+    if (this.props.step === index && this.props.snare[index] !== null) {
+      return "activeButton playing";
     }
     return "activeButton";
   };
@@ -69,7 +83,8 @@ class UnconnectedSnarePattern extends Component {
 }
 
 let mapStateToProps = state => ({
-  snare: state.snareSequence
+  snare: state.snareSequence,
+  step: state.step
 });
 
 let SnarePattern = connect(mapStateToProps)(UnconnectedSnarePattern);

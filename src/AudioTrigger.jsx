@@ -9,6 +9,10 @@ class UnconnectedAudioTrigger extends Component {
       value: this.props.snare
     };
   }
+  componentDidMount() {
+    this.start();
+    setTimeout(this.stop, 100);
+  }
 
   wider = new Tone.StereoWidener();
 
@@ -42,6 +46,10 @@ class UnconnectedAudioTrigger extends Component {
 
   oneStep = time => {
     let step = this.index % 32;
+    this.props.dispatch({
+      type: "setStep",
+      step: step
+    });
     if (this.props.snare[step] !== null) {
       this.playSnare(this.props.snare[step], time);
     }
@@ -54,12 +62,7 @@ class UnconnectedAudioTrigger extends Component {
   index = 0;
 
   render() {
-    return (
-      <div>
-        <button onClick={this.start}>START Pattern</button>
-        <button onClick={this.stop}>STOP</button>
-      </div>
-    );
+    return <div></div>;
   }
 }
 

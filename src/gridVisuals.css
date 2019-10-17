@@ -4,24 +4,44 @@
   grid-column-gap: 10px;
   justify-content: center;
   align-items: center;
-  width: 75%;
+  margin-left: 50px;
+  margin-right: 50px;
   height: 50px;
 }
 
 .button {
   height: 50px;
-  background-color: #4effef;
+  border-radius: 5px;
+  box-shadow: 0 3px #999;
+  background-color: #ffc631;
+}
+
+.button:active {
+  box-shadow: 0 1px #666;
+  transform: translateY(2px);
 }
 
 .four {
   height: 50px;
-  background-color: #73a6ad;
+  border-radius: 5px;
+  background-color: #5e9cd9;
+  box-shadow: 0 3px #999;
+}
+
+.four:active {
+  box-shadow: 0 1px #666;
+  transform: translateY(2px);
 }
 
 .activeButton {
-  background-color: #9b97b2;
+  background-color: #2fb16f;
+  box-shadow: 0 3px #999;
+}
+.activeButton:active {
+  box-shadow: 0 1px #666;
+  transform: translateY(2px);
 }
 
 .playing {
-  opacity: 50%;
+  border: solid 2px #c91610;
 }

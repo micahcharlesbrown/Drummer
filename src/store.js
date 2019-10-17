@@ -68,11 +68,11 @@ let initialState = {
     null,
     null
   ],
-  bpm: 120
+  bpm: 120,
+  step: 0
 };
 
 let reducer = (state, action) => {
-  console.log("reducer hit");
   if (action.type === "changeSnarePattern") {
     return {
       ...state,
@@ -89,6 +89,12 @@ let reducer = (state, action) => {
     return {
       ...state,
       bpm: action.bpm
+    };
+  }
+  if (action.type === "setStep") {
+    return {
+      ...state,
+      step: action.step
     };
   }
 

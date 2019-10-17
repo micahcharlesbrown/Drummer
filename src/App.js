@@ -22,14 +22,19 @@ class UnconnectedApp extends Component {
     Tone.Transport.bpm.value = this.props.bpm;
     return (
       <div className="App">
-        DRUMMER
-        <button onClick={this.start}>START</button>
-        <button onClick={this.stop}>STOP</button>
+        <h2>DRUMMER</h2>
+        <button className="transportButton" onClick={this.start}>
+          START
+        </button>
+        <button className="transportButton" onClick={this.stop}>
+          STOP
+        </button>
         <AudioTrigger />
         <SnarePattern />
         <br />
         <KickPattern />
-        <SetBPM />
+        <br />
+        Set BPM: <SetBPM />
       </div>
     );
   }

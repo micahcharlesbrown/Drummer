@@ -22,7 +22,7 @@ class UnconnectedApp extends Component {
     Tone.Transport.bpm.value = this.props.bpm;
     return (
       <div className="App">
-        <h2>DRUMMER</h2>
+        <div className="titleDrummer">DRUMMER</div>
         <button className="transportButton" onClick={this.start}>
           START
         </button>

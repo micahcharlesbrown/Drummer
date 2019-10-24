@@ -8,10 +8,11 @@ class UnconnectedSetBPM extends Component {
       bpm: ""
     };
   }
-  
 
   submitHandler = event => {
     event.preventDefault();
+    if (isNaN(this.state.bpm)) return;
+    if (this.state.bpm < 20 || this.state.bpm > 240) return;
     this.props.dispatch({
       type: "setBpm",
       bpm: this.state.bpm
@@ -26,10 +27,12 @@ class UnconnectedSetBPM extends Component {
     return (
       <form onSubmit={this.submitHandler}>
         <input
+          className="bpmBox"
           type="text"
           onChange={this.onChangeHandler}
           value={this.state.bpm}
         ></input>
+        <input className="transportButton" type="submit" value="set"></input>
       </form>
     );
   }

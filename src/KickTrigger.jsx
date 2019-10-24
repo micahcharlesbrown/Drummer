@@ -21,6 +21,15 @@ class UnconnectedKickTrigger extends Component {
     return;
   };
 
+  playKickSample = (note, time) => {
+    console.log("hit kick sample");
+    let kickSamp = new Tone.Sampler({
+      E1: "./public/samples/kick.wav"
+    }).toMaster();
+    kickSamp.triggerAttackRelease(note, "32n", time);
+    return;
+  };
+
   start = sequence => {
     this.setState(this.state);
     Tone.Transport.scheduleRepeat(this.oneStep, "16n");
@@ -35,7 +44,7 @@ class UnconnectedKickTrigger extends Component {
     let step = this.index % 32;
 
     if (this.props.kick[step] !== null) {
-      this.playKick(this.props.kick[step], time);
+      this.playKickSample(this.props.kick[step], time);
     }
     this.index++;
   };

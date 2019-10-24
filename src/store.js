@@ -68,6 +68,40 @@ let initialState = {
     null,
     null
   ],
+  hihatSequence: [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
   bpm: 120,
   step: 0
 };
@@ -83,6 +117,12 @@ let reducer = (state, action) => {
     return {
       ...state,
       kickSequence: action.newPattern
+    };
+  }
+  if (action.type === "changeHihatPattern") {
+    return {
+      ...state,
+      hihatSequence: action.newPattern
     };
   }
   if (action.type === "setBpm") {

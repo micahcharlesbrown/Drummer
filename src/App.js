@@ -26,7 +26,7 @@ class UnconnectedApp extends Component {
     return (
       <div className="App container textStyling">
         <div>
-          <div className="titleDrummer textStyling">DRUMMER</div>
+          <div className="titleDrummer textStyling">BOOM-BAP-KSH</div>
         </div>
         <button className="transportButton" onClick={this.start}>
           START

@@ -10,6 +10,7 @@ import SnarePattern from "./SnarePattern.jsx";
 import KickPattern from "./KickPattern";
 import HihatPattern from "./HihatPattern";
 import AudioTrigger from "./AudioTrigger.jsx";
+import ExportBeat from "./ExportBeat.jsx";
 import SetBPM from "./SetBPM";
 
 class UnconnectedApp extends Component {
@@ -45,6 +46,7 @@ class UnconnectedApp extends Component {
         <KickPattern />
         <br />
         Set BPM: <SetBPM />
+        <ExportBeat />
       </div>
     );
   }

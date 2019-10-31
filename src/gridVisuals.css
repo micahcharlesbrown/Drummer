@@ -11,6 +11,7 @@
 
 .button {
   height: 50px;
+  min-width: 10px;
   border-radius: 5px;
   box-shadow: 0 3px #999;
   background-color: #ffc631;
@@ -22,6 +23,8 @@
 }
 
 .four {
+  min-width: 10px;
+
   height: 50px;
   border-radius: 5px;
   background-color: #5e9cd9;
@@ -34,6 +37,8 @@
 }
 
 .activeButton {
+  min-width: 10px;
+
   background-color: #2fb16f;
   box-shadow: 0 3px #999;
 }
@@ -45,5 +50,3 @@
 .playing {
   border: solid 2px #c91610;
 }
-
-
